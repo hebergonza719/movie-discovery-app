@@ -54,30 +54,31 @@ export default function HorrorMovieDiscoveryPage() {
   });
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8">
+    <div className="mx-auto max-w-7xl py-8 px-2 xl:px-0">
       <h1 className="text-3xl font-bold">
         20 Of The Best Horror Movies To Watch This Halloween
       </h1>
-
-      <label htmlFor="release-date-select">Release Date:</label>
-      <select
-        value={filterValue}
-        onChange={(e) => {
-          const value = e.currentTarget.value;
-          setFilterValue(value);
-        }}
-        id="release-date-select"
-      >
-        <option value={DESCENDING}>Most Recent</option>
-        <option value={ASCENDING}>Oldest</option>
-      </select>
+      <div className="my-2 justify-self-end">
+        <label htmlFor="release-date-select">Release Date:</label>
+        <select
+          value={filterValue}
+          onChange={(e) => {
+            const value = e.currentTarget.value;
+            setFilterValue(value);
+          }}
+          id="release-date-select"
+        >
+          <option value={DESCENDING}>Most Recent</option>
+          <option value={ASCENDING}>Oldest</option>
+        </select>
+      </div>
 
       {sortedMovies.length > 0 ? (
-        <>
+        <div className="grid grid-flow-row grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {sortedMovies.map((movie) => {
             return <MovieCard key={movie.id} movie={movie} />;
           })}
-        </>
+        </div>
       ) : (
         <>Loading...</>
       )}
