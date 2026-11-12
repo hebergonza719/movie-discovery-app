@@ -1,5 +1,10 @@
-function App() {
-  return <h1 className="p-4 text-5xl font-bold text-black">Movie Discovery</h1>
-}
+import { Route, Routes } from 'react-router';
+import HorrorMovieDiscoveryPage from './pages/HorrorMovieDiscoveryPage';
 
-export default App
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HorrorMovieDiscoveryPage />} />
+    </Routes>
+  );
+}
